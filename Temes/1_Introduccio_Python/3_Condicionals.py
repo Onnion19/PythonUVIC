@@ -45,13 +45,3 @@ if(a == b):
 	
 	
 
-"""
-Com fer un condicional amb una funcio 
-"""
-	
-	
-def Evaluate(a,b):
-	return a <b; 
-	
-if( Evaluate(2,5)): 
-	print("Amb una funcio tambe funciona")
