@@ -31,5 +31,36 @@ for subcadena in CadenaC:
 	if(len(subcadena)>0 and subcadena[0] == 'G'):
 		numCG = numCG +1;	
 	
-print(f"%T= {numAT/numT} %G {numCG/numG}\n");
+print(f"%T= {numAT/numT} %G= {numCG/numG}\n=======\n");
+
+'''
+Ens donaran una cadena. En aquesta cadena hi trobarem cadenes de bases separades
+per *. Es demana un algorisme que ens digui quantes cadenes hi ha que comencin i
+acabin per les mateixes bases que l’última.
+Exemple:
+ATTAG*ATTGCT*ATTTCGCG*TTATT*GATTG*CTTAA*AG*ACGTG* 
+'''
+print("\n\nExercici 2\n\n");
+
+#Versio llistes (pop?)
+
+cadena = "*ATTAG*ATTGCT*ATTTCGCG*TTATT*GATTG*CTTAA*AG*ACGTG*"
+subcadenes = cadena.split('*');
+
+UltimaCadena = subcadenes.pop();
+UltimaCadena = subcadenes.pop();
+
+PrimeraLletra = UltimaCadena[0]; 
+UltimaLletra = UltimaCadena[len(UltimaCadena)-1]; #'CGG' llargada=4 pos max = 3
+
+numTrobats = 0
+for subcadena in subcadenes: 
+	if(len(subcadena)>1):
+		if(subcadena[0]==PrimeraLletra   and subcadena[len(subcadena) -1] == UltimaLletra):
+			numTrobats= numTrobats +1;
+
+print(f'El nombre de trobats es = {numTrobats}');
+
+
+
 
