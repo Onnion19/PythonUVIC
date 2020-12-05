@@ -71,3 +71,40 @@ else:
 			print("Es asimetric a dreta ")
 
 
+print("Exercici 2\n");
+'''
+Donada una cadena de seqüències de bases separades per * mostrar quina és la
+seqüència més curta que conté la mateixa quantitat de Timines que l’última.
+Exemple:
+ACGTTTGCTGACCG*ATCGTGTGCGTTGAC*ACTTGCTGAT*ACGTGCACGTGCAACGTT*ATTTTA
+Resposta: ACTTGCTGAT
+'''
+
+Cadena = "ACGTTTGCTGACCG*ATCGTGTGCGTTGAC*ACTTGCTGAT*ACGTGCACGTGCAACGTT*ATTTTA"
+Subcadenes = Cadena.split('*');
+#Buscar numero timines
+numTimines = 0; 
+ultimaCadena = Subcadenes.pop();
+for base in ultimaCadena: 
+	if(base == 'T'): 
+		numTimines = numTimines +1;
+
+#Buscar cadenes amb el mateix numero de T
+CadenaCurta = "ACGTTTGCTGACCG*ATCGTGTGCGTTGAC*ACTTGCTGAT*ACGTGCACGTGCAACGTT*ATTTTA"
+CadenesAmbMateixT = []
+
+for cadena in Subcadenes: 
+	numTiminesDinsSubcadena = 0
+	for base in cadena: 
+		if(base == 'T'): 
+			numTiminesDinsSubcadena = numTiminesDinsSubcadena +1;
+
+
+	if(numTiminesDinsSubcadena == numTimines): 
+		CadenesAmbMateixT.append(cadena);
+		
+for cadena in CadenesAmbMateixT: 
+	if(len(cadena) < len(CadenaCurta)): 
+		CadenaCurta = cadena; 
+		
+print(f'La cadena mes curta es {CadenaCurta}');
