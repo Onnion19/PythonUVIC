@@ -21,7 +21,7 @@ Asimètrica a l’esquerra Asimètrica a la dreta
 
 Cadena1 = "A C G T"
 Cadena1.upper(); 
-Cadena2 = "18 10 15 30"
+Cadena2 = "10 121 71 100"
 
 Bases = Cadena1.split(); 
 Ocurrencies = Cadena2.split();
@@ -39,5 +39,20 @@ for i in range(len(Ocurrencies)): # range [0, ultim)
 Moda = Bases[index];
 print(f'La moda es = {Moda}')
 
+#Troba si es asimetric:
+  
+if( index >  int(len(Ocurrencies)/2)): 
+	print("Es asimetric a la l'esquerra")
+else: 
+	print("Es asimetric a dreta ")
+	
+#Metode alternatiu de trobar l'asimetria	
+valorsEsquerra = index; 
+valorsDreta = len(Ocurrencies) - index -1;
+
+if( valorsEsquerra >  valorsDreta): 
+	print("Es asimetric a la l'esquerra")
+else: 
+	print("Es asimetric a dreta ")
 
 
