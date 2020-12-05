@@ -12,7 +12,7 @@ d’error.
 
 Exemple1 : 				Exemple2:
 Cadena1= A C G T 		Cadena1= A C G T
-Cadena2= 18 10 15 30 	cadena2= 10 121 71 100
+Cadena2= 18 30 15 30 	cadena2= 10 121 71 100
 
 Resposta: 				Resposta:
 Moda: T 				Moda: C
@@ -21,38 +21,53 @@ Asimètrica a l’esquerra Asimètrica a la dreta
 
 Cadena1 = "A C G T"
 Cadena1.upper(); 
-Cadena2 = "10 121 71 100"
+Cadena2 = "10 121 71 121"
 
 Bases = Cadena1.split(); 
 Ocurrencies = Cadena2.split();
 
-index = 0; 
-max = 0;
-
-#Trobem la moda
-for i in range(len(Ocurrencies)): # range [0, ultim)	
-	ocurrencia = int(Ocurrencies[i]);
-	if( ocurrencia > max): 
-		max = ocurrencia; 
-		index = i;
-
-Moda = Bases[index];
-print(f'La moda es = {Moda}')
-
-#Troba si es asimetric:
-  
-if( index >  int(len(Ocurrencies)/2)): 
-	print("Es asimetric a la l'esquerra")
-else: 
-	print("Es asimetric a dreta ")
+#Versio exit
+if (len(Bases) != len(Ocurrencies)):
+	exit("Error"); 
 	
-#Metode alternatiu de trobar l'asimetria	
-valorsEsquerra = index; 
-valorsDreta = len(Ocurrencies) - index -1;
+#versio if-else
+if (len(Bases) != len(Ocurrencies)):
+	print ("Error");
+	
+else:
+	index = []; 
+	max = 0;
 
-if( valorsEsquerra >  valorsDreta): 
-	print("Es asimetric a la l'esquerra")
-else: 
-	print("Es asimetric a dreta ")
+	#Trobem la moda
+	for i in range(len(Ocurrencies)): # range [0, ultim)	
+		ocurrencia = int(Ocurrencies[i]);
+		if( ocurrencia > max): 
+			index = [];
+			max = ocurrencia; 
+			index.append(i);
+		elif(ocurrencia == max):
+			index.append(i);
+
+	for i in index:
+		Moda = Bases[i];
+		print(f'La moda es = {Moda}')
+
+	
+	if(len(index)==1):
+		#Troba si es asimetric:
+		  
+		if( index[0] >  int(len(Ocurrencies)/2)): 
+			print("Es asimetric a la l'esquerra")
+		else: 
+			print("Es asimetric a dreta ")
+			
+		#Metode alternatiu de trobar l'asimetria	
+		valorsEsquerra = index[0]; 
+		valorsDreta = len(Ocurrencies) - index[0] -1;
+
+		if( valorsEsquerra >  valorsDreta): 
+			print("Es asimetric a la l'esquerra")
+		else: 
+			print("Es asimetric a dreta ")
 
 
