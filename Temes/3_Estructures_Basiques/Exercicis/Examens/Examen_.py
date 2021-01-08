@@ -1,9 +1,6 @@
 '''
 
 
-d. Es demana fer una funció que rebi com a paràmetre una llista i retorni la
-mitjana dels seus valors. Aquesta funció s’anomenarà mitjana(l).
-
 e. Es demana fer una funció que rebi com a parametre una llista de valors que no
 són numèrics i retorni una llista amb els mateixos valors que la inicial però
 passats a real. Aquesta funció s’anomenarà pasreal(l).
@@ -104,6 +101,21 @@ def llegir(nom):
 		contingut.append(linia);
 		
 	return contingut; 
+
+##Part4
+'''
+d. Es demana fer una funció que rebi com a paràmetre una llista i retorni la
+mitjana dels seus valors. Aquesta funció s’anomenarà mitjana(l).
+exemple llista: [5,4,3,-5,7,-1,0,-4] --> mitjana 
+'''
+
+def mitjana(llista): 
+	mitjana = 0;
+	sumatori = 0;
+	for element in llista: 
+		sumatori += element; # sumatori = sumatori + element
 	
+	mitjana = sumatori / len(llista); 
+	return mitjana; 
 	
-print(llegir("Prova")); 
+
