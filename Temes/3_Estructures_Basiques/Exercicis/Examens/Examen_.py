@@ -1,13 +1,5 @@
 '''
 
-
-
-
-f. Es demana una funció que rebi com a paràmetre una llista tipus:
-[codi pob, codi pob,codi pob,....] i retorni un diccionari on la clau de cada
-element sigui el codi i el valor pass¡ociat sigui la població. Aquesta funció
-s’anomenarà dicc(l).
-
 g. Es demana fer un programa permeti llegir dos fitxers f1.txt i f2.txt que tenen
 l’estructura:
 f1.txt f2.txt
@@ -129,6 +121,25 @@ def pasreal(llista):
 		contingut.append( float(element)); 
 	
 	return contingut; 
+ 
+ ##Part6
+'''
+ f. Es demana una funció que rebi com a paràmetre una llista tipus:
+[codi pob, codi pob,codi pob,....] i retorni un diccionari on la clau de cada
+element sigui el codi i el valor pass¡ociat sigui la població. Aquesta funció
+s’anomenarà dicc(l).
 
-llistaProva = ['6','5','8','-5','5.34']
-print(pasreal(llistaProva)); 
+exemple -> ["065 Vic" , "493 Barcelona" , ...] -->
+			{065 : "Vic" , 493: "Barcelona"}
+'''
+def dicc(llista): 
+	diccionari = {};
+	
+	for element in llista: ## element -> "065 Vic"
+		Parella = element.split(); ##Parella = ["065" , "Vic"]
+		clau = int(Parella[0]);##clau = 065
+		valor = Parella[1]; ## "Vic"
+		diccionari[clau] = valor; ## {065 : "Vic"}
+	
+	return diccionari; 
+ 
