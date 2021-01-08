@@ -1,9 +1,7 @@
 '''
 
 
-e. Es demana fer una funció que rebi com a parametre una llista de valors que no
-són numèrics i retorni una llista amb els mateixos valors que la inicial però
-passats a real. Aquesta funció s’anomenarà pasreal(l).
+
 
 f. Es demana una funció que rebi com a paràmetre una llista tipus:
 [codi pob, codi pob,codi pob,....] i retorni un diccionari on la clau de cada
@@ -118,4 +116,19 @@ def mitjana(llista):
 	mitjana = sumatori / len(llista); 
 	return mitjana; 
 	
+##Part 5
+'''
+e. Es demana fer una funció que rebi com a parametre una llista de valors que no
+són numèrics i retorni una llista amb els mateixos valors que la inicial però
+passats a real. Aquesta funció s’anomenarà pasreal(l).
+exemple = ['6','5','8','-5','5.34'] --> [6,5,8,-5,5.34]
+'''
+def pasreal(llista): 
+	contingut = []
+	for element in llista: 
+		contingut.append( float(element)); 
+	
+	return contingut; 
 
+llistaProva = ['6','5','8','-5','5.34']
+print(pasreal(llistaProva)); 
