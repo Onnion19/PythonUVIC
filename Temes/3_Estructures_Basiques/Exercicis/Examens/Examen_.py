@@ -143,3 +143,78 @@ def dicc(llista):
 	
 	return diccionari; 
  
+ ##Part 7
+'''
+ g. Es demana fer un programa permeti llegir dos fitxers f1.txt i f2.txt que tenen
+l’estructura:
+f1.txt: 
+codi_postal Poblacio
+
+f2.txt 
+codi_postal 4 3 2 5 4 2 4 5
+on en f1.txt hi ha la relació entre codi postal de població i el nom de la població,
+i en f2.txt per cada línia tenim el codi de la població i un conjunt de
+temperatures que s’han mesurat.
+Un cop llegits aquests dos fitxers cal que el programa mostri per cada població
+el seu nom, els valors positius, els valors negatius, el percentatge de valors
+positius sobre el total, el percentatge de valors negatius sobre el total i la
+mitjana de temperatures.
+Seguint l’exemple dels fitxers, el resultat seria:
+Olot
+Valors positius 5 7 2 4
+Valors negatius -1 -3
+Percentatge positius: 66.67%
+Percentatge negatius: 33.33%
+Mitjana temperatura: 2.33
+
+Figueres
+Valors positius 2 3 7
+Valors negatius -1
+Percentatge positius: 60%
+Percentatge negatius: 20%
+:
+:
+'''
+def CrearDiccionariTemperatures(llista): 
+	diccionariTemperatures = {}
+	for element in llista: 
+		contingut = element.split(); ##["065","4","3","2","-4"]
+		clau = int(contingut[0]);
+		valor = pasreal(contingut[1:]);
+		diccionariTemperatures[clau] = valor; 
+		
+	return diccionariTemperatures;
+
+
+##Llegir poblacions i temperatures
+##Poblacions: 
+llistaPoblacions = llegir("f1.txt"); ##["065 Vic", "493 barcelona" , ...]
+diccionariPoblacions = dicc(llistaPoblacions); ##{065: "Vic", 493 :"barcelona"}
+
+##Temperatures
+llistaTemperatures = llegir("f2.txt"); ["065 4 3 2 -4", "493 8 19 0 3"]
+diccionariTemperatures = CrearDiccionariTemperatures(llistaTemperatures);
+
+for codiPostal, poblacio in diccionariPoblacions.items(): 
+	##Mostrar poble o codipostal
+	print(f'{poblacio}: {codiPostal}');
+	##Agafem els valors temperatures
+	llistatValors = diccionariTemperatures[codiPostal];
+	
+	##Triem els positius
+	valorsPositius = tria(llistatValors,'+');
+	##Triem els negatius
+	valorsNegatius = tria(llistatValors, '-'); 
+	##Mostrar temperatures
+	print(f'Positius = {valorsPositius}');
+	print(f'Negatius = {valorsNegatius}');
+	
+	##Mostrar Mitjanes 
+	PercentatgePositius = 100*len(valorsPositius)/len(llistatValors); 
+	PercentatgeNegatius = 100*len(valorsNegatius)/len(llistatValors); 
+	print(f'Mitjana Positius = {PercentatgePositius}');
+	print(f'Mitjana Negatius = {PercentatgeNegatius}');
+	##Calcul de la mitjana
+	Mitjana = mitjana(llistatValors); 
+	print(f'Mitjana = {Mitjana}');
+	print("----");
