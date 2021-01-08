@@ -1,12 +1,5 @@
 '''
 
-b. Es demana fer una funció que rebi per paràmetres una llista i un caràcter, i
-retorni una llista només amb els valors positius de la primera si el caràcter
-rebut és un +, o una llista amb els valors negatius de la primera si el caràcter
-rebut és un -. Aquesta funció s’anomenarà tria(l,c).
-
-c. Es demana fer una funció que rebi com a paràmetre el nom d’un fitxer i retorni
-una llista amb el seu contingut. Aquesta funció s’anomenarà llegir(nom)
 
 d. Es demana fer una funció que rebi com a paràmetre una llista i retorni la
 mitjana dels seus valors. Aquesta funció s’anomenarà mitjana(l).
@@ -90,3 +83,27 @@ def tria(llista,caracter):
 			contingut.append(element);
 
 	return contingut; 
+	
+	
+##Part3
+'''
+c. Es demana fer una funció que rebi com a paràmetre el nom d’un fitxer i retorni
+una llista amb el seu contingut. Aquesta funció s’anomenarà llegir(nom)
+'''
+
+def llegir(nom): 
+	contingut = []
+	fitxer = None; 
+	try: 
+		fitxer = open(nom,"r"); 	
+	except:  
+		print("Nom de fitxer invalid"); 
+		return contingut; 
+		
+	for linia in fitxer: 
+		contingut.append(linia);
+		
+	return contingut; 
+	
+	
+print(llegir("Prova")); 
